@@ -14,12 +14,12 @@ import subprocess
 file = open('SurveyResults.txt', 'a')
 
 #Matrix to store questions -- change/add questions to customize your survey
-questions = ['How did you find this survey?', 'What is your favorite part of the museum?',
+questions = ['What is your favorite mythical creature?', 'What is your favorite breakfast?',
              'What is your favorite subject in school?']
 
 #Dictionary to store question choices -- change/add responses for each question. Change dictionary keys to reflect Makey Makey 
-choices = [{'w' : 'I knew it was here!', 'a' : 'Stumbled upon it!', 's' : 'Not really sure how I got here...', 'd' : 'Was told to check it out by another person.', 'f' : 'Intuition.'},
-           {'w': 'This survey!', 'a': 'Butterfly house!', 's': 'Planetarium!', 'd': 'Interactive exhibits!', 'f': 'All of it!'},
+choices = [{'w' : 'Dragon, duh', 'a' : 'Unicorn forever!', 's' : 'Hippogriff, because why', 'd' : 'Do faeries count?', 'f' : 'Yoda, me choose'},
+           {'w': 'Toast!', 'a': 'Eggs & Bacon', 's': 'Pancakes', 'd': 'Oatmeal', 'f': 'Bagel and cream cheese'},
            {'w': 'Science/Math!', 'a': 'Art/Music!', 's' : 'English/Writing', 'd': 'History/Philosophy', 'f': 'All of them!'}]
     
 #Ask survey question and print choices, take response, return reponse
@@ -34,9 +34,9 @@ def takeVote(questionNum, questions, choices):
 def checkVote(vote):
     print("Your vote is: ", vote, "\n")
     
-    response = getValidInput('Is this correct? Please select the "yes" or "no" touch pads. ', [' ', 'n'])
+    response = getValidInput('Is this correct? Please select the "yes" or "no" touch pads. ', ['y', 'n'])
 
-    if response == ' ':
+    if response == 'y':
         print("Success!! \n You have voted for: ", vote, "\n Next question loading...", end = '\n\n')
         return True
     elif response == 'n':
