@@ -17,7 +17,8 @@ file = open('SurveyResults.txt', 'a')
 questions = ['What is your favorite mythical creature?', 'What is your favorite breakfast?',
              'What is your favorite subject in school?']
 
-#Dictionary to store question choices -- change/add responses for each question. Change dictionary keys to reflect Makey Makey 
+#Dictionary to store question choices -- change/add responses for each question. 
+#Change dictionary keys to reflect Makey Makey header pin letter assignments
 choices = [{'w' : 'Dragon, duh', 'a' : 'Unicorn forever!', 's' : 'Hippogriff, because why', 'd' : 'Do faeries count?', 'f' : 'Yoda, me choose'},
            {'w': 'Toast!', 'a': 'Eggs & Bacon', 's': 'Pancakes', 'd': 'Oatmeal', 'f': 'Bagel and cream cheese'},
            {'w': 'Science/Math!', 'a': 'Art/Music!', 's' : 'English/Writing', 'd': 'History/Philosophy', 'f': 'All of them!'}]
@@ -34,6 +35,7 @@ def takeVote(questionNum, questions, choices):
 def checkVote(vote):
     print("Your vote is: ", vote, "\n")
     
+    #Reprogram two Makey Makey into 'y' and 'n' keys, or switch key codes to correspond to existing Makey Makey assignments (e.g. 'g' or ' ')
     response = getValidInput('Is this correct? Please select the "yes" or "no" touch pads. ', ['y', 'n'])
 
     if response == 'y':
