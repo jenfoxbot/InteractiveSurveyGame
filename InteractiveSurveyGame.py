@@ -25,7 +25,7 @@ choices = [{'w' : 'Dragon, duh', 'a' : 'Unicorn forever!', 's' : 'Hippogriff, be
     
 #Ask survey question and print choices, take response, return reponse
 def takeVote(questionNum, questions, choices):
-    message = format('Question %s: %s \n Choices: %s. \n' %(questionNum, questions, choices.values()))
+    message = format('Question %s: %s \n Choices: %s. \n' %(questionNum, questions, sorted(choices.values())))
     vote = getValidInput(message, choices.keys())
 
     return choices[vote]
@@ -45,7 +45,6 @@ def checkVote(vote):
         print("Resetting choice...", end = '\n\n')
         return False
 
-    return check
 
 #Function ensures that user inputs a valid response
 def getValidInput(message, valid_inputs):
