@@ -25,7 +25,7 @@ choices = [{'w' : 'Dragon, duh', 'a' : 'Unicorn forever!', 's' : 'Hippogriff, be
     
 #Ask survey question and print choices, take response, return reponse
 def takeVote(questionNum, questions, choices):
-    message = format('Question %s: %s \n Choices: %s. \n' %(questionNum, questions, sorted(choices.values())))
+    message = format('Question %s: %s \n Choices: %s. \n (Push "submit" after selection) \n' %(questionNum, questions, sorted(choices.values())))
     vote = getValidInput(message, choices.keys())
 
     return choices[vote]
@@ -33,16 +33,16 @@ def takeVote(questionNum, questions, choices):
 
 #Require user to validate survey choice (prevents random inputs)
 def checkVote(vote):
-    print("Your vote is: ", vote, "\n")
+    print('Your vote is: ', vote, '\n')
     
     #Reprogram two Makey Makey into 'y' and 'n' keys, or switch key codes to correspond to existing Makey Makey assignments (e.g. 'g' or ' ')
-    response = getValidInput('Is this correct? Please select the "yes" or "no" touch pads. ', ['y', 'n'])
+    response = getValidInput('Is this correct? Please select the "yes" or "no" touch pads, then push "submit". ', ['y', 'n'])
 
     if response == 'y':
-        print("Success!! \n You have voted for: ", vote, "\n Next question loading...", end = '\n\n')
+        print('Success!! \n You have voted for: ', vote, '\n Next question loading...', end = '\n\n')
         return True
     elif response == 'n':
-        print("Resetting choice...", end = '\n\n')
+        print('Resetting choice...', end = '\n\n')
         return False
 
 
@@ -51,15 +51,15 @@ def getValidInput(message, valid_inputs):
     while True:
         response = input(message)
         if len(response) == 0:
-            print("Whoops! Something broke.. Try again!", end = '\n\n')
+            print('Whoops! Something broke.. Try again!', end = '\n\n')
         elif response[0] in valid_inputs:
             return response[0]
         else:
-            print("Sorry -- Your selection is not possible. Please try again.", end = '\n\n')
+            print('Sorry -- Your selection is not possible. Please try again.', end = '\n\n')
 
 #Run the survey -- cycle through each question and corresponding choices, log user response if user validates choice. 
 def takeSurvey():
-    print("Welcome to the Survey Game! Please choose your survey responses using the objects in front of you.", end = '\n\n')
+    print('Welcome to the Survey Game! Please choose your survey responses using the objects in front of you, then push "submit".', end = '\n\n')
 
         #For each question, take a vote
     for i, question in enumerate(questions):
@@ -72,7 +72,7 @@ def takeSurvey():
 
 
 def main():
-    print("Makey Makey Survey Game. \n Designed by Jennifer Fox <jenfoxbot@gmail.com>", end = '\n\n')
+    print('Makey Makey Survey Game. \n Designed by Jennifer Fox <jenfoxbot@gmail.com>', end = '\n\n')
 
     try:
         while True:
